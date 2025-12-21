@@ -1,0 +1,7 @@
+# Example expected training split paths (relative to the dataset root)
+train/NonDemented/
+train/VeryMildDemented/
+train/MildDemented/
+train/ModerateDemented/
+
+# Download the dataset from Kaggle (link in README.md), unzip, and point the training script to the train/ directory.

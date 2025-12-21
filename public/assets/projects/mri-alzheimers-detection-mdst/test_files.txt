@@ -1,0 +1,7 @@
+# Example expected test split paths (relative to the dataset root)
+test/NonDemented/
+test/VeryMildDemented/
+test/MildDemented/
+test/ModerateDemented/
+
+# Download the dataset from Kaggle (link in README.md), unzip, and point the evaluation script to the test/ directory.
