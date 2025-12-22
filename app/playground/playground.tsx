@@ -2,7 +2,9 @@
 
 import * as React from "react";
 import Papa from "papaparse";
-import Plot from "react-plotly.js";
+import dynamic from "next/dynamic";
+
+const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
 
 type Row = Record<string, any>;
 
