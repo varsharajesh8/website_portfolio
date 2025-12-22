@@ -1,298 +1,114 @@
 [
   {
     "slug": "predict-author-nn",
-    "folder": "predict-author-nn",
-    "files": [
-      "README.md",
-      "annotated-ling441predictanauthor.py.pdf"
-    ],
     "title": "Predict an Author (Neural Network, NLP)",
-    "description": "Simple neural net to predict an author from text features (Python).",
-    "tags": [
-      "Python",
-      "NLP",
-      "PyTorch",
-      "Neural Networks",
-      "Text Classification"
-    ],
+    "description": "Neural network model for author prediction from text features. Includes model architecture discussion and annotated analysis.",
+    "tags": ["Python", "NLP", "PyTorch", "Neural Networks", "Text Classification"],
     "hasPdf": true
   },
   {
     "slug": "p4-drone-delivery",
-    "folder": "p4-drone-delivery",
-    "files": [
-      "drone.cpp",
-      "drone.h",
-      "main.cpp",
-      "Makefile",
-      "README.md"
-    ],
-    "title": "Drone Delivery: MST + TSP (C++)",
-    "description": "Graph algorithms in C++: MST, FASTTSP heuristic tour, and OPTTSP branch-and-bound.",
-    "tags": [
-      "C++",
-      "Graphs",
-      "MST",
-      "TSP",
-      "Branch and Bound",
-      "Heuristics",
-      "Data Structures",
-      "Parsing"
-    ],
-    "hasPdf": false
+    "title": "Drone Delivery: MST + TSP Optimization",
+    "description": "Graph optimization project implementing MST construction, heuristic TSP, and optimal TSP using branch-and-bound. Live demo shows algorithm behavior on representative test cases.",
+    "tags": ["C++", "Graphs", "MST", "TSP", "Branch and Bound", "Algorithms"],
+    "demoPath": "/projects/p4-drone-delivery/demo",
+    "restricted": true
   },
   {
     "slug": "bioinformatics-llms",
-    "folder": "bioinformatics-llms",
-    "files": [
-      "Copy of Out-of-the-Box_Bioinformatics_LLM_Capabilities-Draft1.2.docx-3.pdf",
-      "urop poster.pdf"
-    ],
     "title": "Bioinformatics + LLMs Research",
-    "description": "RAG-style bioinformatics Q&A assistant combining retrieval and LLM prompting.",
-    "tags": [
-      "NLP",
-      "Research",
-      "Bioinformatics",
-      "Data Analysis",
-      "Deep Learning",
-      "Healthcare",
-      "ML",
-      "Poster",
-      "Python",
-      "Report"
-    ],
+    "description": "Research project exploring retrieval-augmented generation for bioinformatics question answering using LLMs.",
+    "tags": ["NLP", "Research", "Bioinformatics", "Healthcare", "ML"],
     "hasPdf": true
   },
   {
     "slug": "euchre",
-    "folder": "euchre",
-    "files": [
-      "Card.cpp",
-      "Card.hpp",
-      "Pack.cpp",
-      "Player.cpp",
-      "euchre.cpp"
-    ],
     "title": "Euchre Game Engine (C++)",
-    "description": "Interactive Euchre game with AI opponents and score tracking.",
-    "tags": [
-      "C++",
-      "OOP",
-      "Systems",
-      "Data Structures",
-      "Heuristics",
-      "Parsing",
-      "Simulation"
-    ],
+    "description": "Interactive Euchre game engine with AI players, rule enforcement, and score tracking.",
+    "tags": ["C++", "OOP", "Simulation", "Game Logic", "Data Structures"],
     "hasPdf": false
   },
   {
     "slug": "forum-post-project",
-    "folder": "forum_post_project",
-    "files": [
-      "classifier.cpp"
-    ],
-    "title": "Forum Post Classifier (C++)",
-    "description": "Mini full-stack forum post app with CRUD + authentication.",
-    "tags": [
-      "C++",
-      "ML",
-      "Text",
-      "Data Structures",
-      "Deep Learning",
-      "OOP",
-      "Parsing",
-      "Search",
-      "Text Classification"
-    ],
-    "hasPdf": false
+    "title": "Forum Post Classifier",
+    "description": "Text classification system that predicts post authorship (student vs instructor). Live demo shows classification outputs on published test inputs.",
+    "tags": ["C++", "Text Classification", "ML", "Parsing"],
+    "demoPath": "/projects/forum-post-project/demo",
+    "restricted": true
   },
   {
     "slug": "german-gas",
-    "folder": "german-gas",
-    "files": [
-      "gas.pdf"
-    ],
     "title": "German Gas Market Analysis",
-    "description": "Data analysis of German gas consumption trends with visual storytelling.",
-    "tags": [
-      "Data Analysis",
-      "Economics",
-      "Report",
-      "Research",
-      "Visualization",
-      "R"
-    ],
+    "description": "Exploratory data analysis of German gas consumption trends with narrative-driven visualizations.",
+    "tags": ["Data Analysis", "Economics", "Visualization", "Research", "R"],
     "hasPdf": true
   },
   {
     "slug": "image-resizer",
-    "folder": "image-resizer",
-    "files": [
-      "image.cpp",
-      "matrix.cpp",
-      "processing.cpp",
-      "resize.cpp"
-    ],
-    "title": "Image Resizer (C++)",
-    "description": "Fast in-browser image resizer/compressor with drag-and-drop UI.",
-    "tags": [
-      "C++",
-      "Image Processing",
-      "Linear Algebra",
-      "Data Structures"
-    ],
-    "hasPdf": false
+    "title": "Image Resizer (Content-Aware Seam Carving)",
+    "description": "Image resizing system demonstrating content-aware seam carving. Live demo visualizes seam selection, removal, and resized outputs.",
+    "tags": ["C++", "Image Processing", "Dynamic Programming", "Algorithms"],
+    "demoPath": "/projects/image-resizer/demo",
+    "restricted": true
   },
   {
     "slug": "imdb-analysis",
-    "folder": "imdb-analysis",
-    "files": [
-      "imdb.pdf"
-    ],
     "title": "IMDb Data Analysis Report",
-    "description": "Exploratory analysis + modeling on IMDb movie data.",
-    "tags": [
-      "Data Analysis",
-      "Visualization",
-      "Report",
-      "R",
-      "Research"
-    ],
+    "description": "Exploratory analysis and modeling of IMDb movie data with statistical insights.",
+    "tags": ["Data Analysis", "Visualization", "Research", "R"],
     "hasPdf": true
   },
   {
     "slug": "letterman",
-    "folder": "letterman",
-    "files": [
-      "letterman.cpp",
-      "letterman.h",
-      "main.cpp"
-    ],
-    "title": "Letterman Word Morph Solver (C++)",
-    "description": "Word game / Letterman solver with efficient search.",
-    "tags": [
-      "C++",
-      "Algorithms",
-      "Graphs",
-      "Data Structures",
-      "Search",
-      "Text"
-    ],
-    "hasPdf": false
+    "title": "Letterman Word Morph Solver",
+    "description": "Shortest-path word transformation solver using efficient graph search. Live demo shows transformation paths for published test cases.",
+    "tags": ["C++", "Algorithms", "Graphs", "Search"],
+    "demoPath": "/projects/letterman/demo",
+    "restricted": true
   },
   {
     "slug": "p3-logman",
-    "folder": "p3-logman",
-    "files": [
-      "logman.cpp",
-      "logman.h",
-      "main.cpp",
-      "Makefile",
-      "README.md"
-    ],
-    "title": "Log Manager (C++)",
-    "description": "C++ CLI to search large logs and curate an excerpt list with indexed queries.",
-    "tags": [
-      "C++",
-      "Data Structures",
-      "Parsing",
-      "Search",
-      "Text Classification"
-    ],
-    "hasPdf": false
+    "title": "Log Manager",
+    "description": "Command-driven log querying system with indexed searches and excerpt list management. Live demo replays spec command scripts and outputs.",
+    "tags": ["C++", "Parsing", "Search", "Data Structures"],
+    "demoPath": "/projects/p3-logman/demo",
+    "restricted": true
   },
   {
     "slug": "michigan-medicine",
-    "folder": "michigan-medicine",
-    "files": [
-      "poster.pdf",
-      "report.pdf"
-    ],
     "title": "Michigan Medicine Research Poster",
-    "description": "Healthcare data project analyzing operational metrics with clear dashboards.",
-    "tags": [
-      "Research",
-      "Poster",
-      "Healthcare",
-      "Bioinformatics",
-      "Data Analysis",
-      "Economics",
-      "Report",
-      "Visualization"
-    ],
+    "description": "Healthcare data analysis project presented as a research poster and report.",
+    "tags": ["Research", "Healthcare", "Data Analysis", "Visualization"],
     "hasPdf": true
   },
   {
     "slug": "stocks",
-    "folder": "stocks",
-    "files": [
-      "main.cpp",
-      "market.cpp"
-    ],
-    "title": "Stock Market Simulator (C++)",
-    "description": "Mini stocks analysis dashboard with interactive charts and indicators.",
-    "tags": [
-      "C++",
-      "Simulation",
-      "Data Structures",
-      "Algorithms",
-      "Economics",
-      "Parsing"
-    ],
-    "hasPdf": false
+    "title": "Stock Market Simulator",
+    "description": "Market simulation engine processing buy/sell orders with trade matching, medians, trader summaries, and time-traveler analysis. Live demo shows full output modes.",
+    "tags": ["C++", "Simulation", "Algorithms", "Economics"],
+    "demoPath": "/projects/stocks/demo",
+    "restricted": true
   },
   {
     "slug": "textgen-homemade-lstm",
-    "folder": "textgen-homemade-lstm",
-    "files": [
-      "README.md",
-      "rajesh_lstm-2.py",
-      "Rajesh_Coleridge_checkpt_dim256_lr0.0003.pth"
-    ],
     "title": "Text Generation with a Homemade LSTM",
-    "description": "Character-level text generation using a from-scratch LSTM in Python.",
-    "tags": [
-      "Python",
-      "NLP",
-      "Deep Learning",
-      "LSTM",
-      "PyTorch",
-      "Text Generation"
-    ],
+    "description": "From-scratch character-level LSTM for text generation, including training and inference.",
+    "tags": ["Python", "Deep Learning", "LSTM", "NLP"],
     "hasPdf": false
   },
   {
     "slug": "mri-alzheimers-detection-mdst",
-    "folder": "mri-alzheimers-detection-mdst",
-    "files": [
-      "README.md",
-      "train_files.txt",
-      "test_files.txt"
-    ],
-    "title": "MRI Alzheimer\u2019s Detection (MDST)",
-    "description": "MRI Alzheimer's classifier with Grad-CAM explainability and a Streamlit demo.",
-    "tags": [
-      "Python",
-      "Deep Learning",
-      "Computer Vision",
-      "Streamlit",
-      "PyTorch",
-      "Healthcare",
-      "Bioinformatics",
-      "Data Analysis",
-      "Image Processing",
-      "ML",
-      "Neural Networks",
-      "Research",
-      "Visualization"
-    ],
+    "demoPath": "https://mri-alzheimer-detection.streamlit.app/",
+    "title": "MRI Alzheimer’s Detection (MDST)",
+    "description": "Deep learning pipeline for Alzheimer’s detection from MRI scans with Grad-CAM explainability and a live Streamlit demo.",
+    "tags": ["Python", "Deep Learning", "Computer Vision", "Healthcare"],
     "hasPdf": false,
     "links": {
       "github": "https://github.com/Aman-Amith-Shastry/mri-alzheimers-detection-mdst",
       "demo": "https://mri-alzheimer-detection.streamlit.app/",
       "dataset": "https://www.kaggle.com/datasets/uraninjo/augmented-alzheimer-mri-dataset"
+      
+
     }
   }
 ]

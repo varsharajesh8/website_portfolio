@@ -5,9 +5,12 @@ export default function AboutPage() {
 
       <p className="mt-4 text-white/80 leading-relaxed">
         Hi, I’m <span className="font-medium text-white">Varsha Rajesh</span>. I’m
-        a Data Science major at the University of Michigan's College of Engineering, expecting to graduate in April 2027. I am a dedicated student who enjoys building practical systems and
-        experimenting with ML/NLP. I’m looking for{" "}
-        <span className="font-medium text-white">Data Science / Data Analyst / ML internship</span>{" "}
+        a Data Science major at the University of Michigan&apos;s College of Engineering,
+        expecting to graduate in April 2027. I am a dedicated student who enjoys building
+        practical systems and experimenting with ML/NLP. I’m looking for{" "}
+        <span className="font-medium text-white">
+          Data Science / Data Analyst / ML internship
+        </span>{" "}
         roles and I like projects that are hands-on, measurable, and have important effects.
       </p>
 
@@ -33,11 +36,41 @@ export default function AboutPage() {
 
         <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h2 className="text-lg font-medium">Contact</h2>
-          <p className="mt-2 text-white/80">
-            <li>LinkedIn: www.linkedin.com/in/varsha-rajesh08</li>
-            <li>Email: varajesh@umich.edu</li>
-            <li>GitHub: www.github.com/varsharajesh</li>
-          </p>
+
+          {/* ✅ FIX: <li> must be inside <ul>, not <p> */}
+          <ul className="mt-2 list-disc pl-5 text-white/80 space-y-1">
+            <li>
+              LinkedIn:{" "}
+              <a
+                href="https://www.linkedin.com/in/varsha-rajesh08"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:text-white"
+              >
+                www.linkedin.com/in/varsha-rajesh08
+              </a>
+            </li>
+            <li>
+              Email:{" "}
+              <a
+                href="mailto:varajesh@umich.edu"
+                className="underline hover:text-white"
+              >
+                varajesh@umich.edu
+              </a>
+            </li>
+            <li>
+              GitHub:{" "}
+              <a
+                href="https://www.github.com/varsharajesh"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:text-white"
+              >
+                www.github.com/varsharajesh
+              </a>
+            </li>
+          </ul>
         </section>
       </div>
     </div>

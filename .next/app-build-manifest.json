@@ -21,20 +21,40 @@
       "static/chunks/main-app.js",
       "static/chunks/app/projects/[slug]/page.js"
     ],
-    "/resume/page": [
+    "/projects/p3-logman/demo/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/resume/page.js"
+      "static/chunks/app/projects/p3-logman/demo/page.js"
+    ],
+    "/projects/stocks/demo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/stocks/demo/page.js"
+    ],
+    "/projects/image-resizer/demo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/image-resizer/demo/page.js"
+    ],
+    "/projects/forum-post-project/demo/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/forum-post-project/demo/page.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
     ],
     "/playground/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/playground/page.js"
     ],
-    "/_not-found/page": [
+    "/resume/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/resume/page.js"
     ]
   }
 }

@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getProjects, getProject } from "@/lib/content";
 import { CodeViewer } from "@/components/CodeViewer";
+import CodeRestrictionModal from "@/components/CodeRestrictionModal";
+import ProjectTabs from "@/components/ProjectTabs";
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }));
@@ -15,24 +17,49 @@ export default async function ProjectDetail({ params }: Props) {
   const { slug } = await params;
 
   const p = getProject(slug);
-  if (!p) return notFound();
+  if (!p) notFound();
 
-  const baseUrl = `/assets/projects/${p.slug}`;
+  const files = p.files ?? [];
+  const isRestricted = Boolean(p.restricted);
+  const demoPath = p.demoPath;
+
+  const baseUrl =
+    p.slug === "image-resizer" ? "/assets/demos/image-resizer" : `/assets/projects/${p.slug}`;
+
+  const imageFiles = files.filter((f) => /\.(png|jpe?g|gif|webp|svg)$/i.test(f));
+  const pdfFiles = files.filter((f) => f.toLowerCase().endsWith(".pdf"));
+  const sourceFiles = files.filter(
+    (f) => !f.toLowerCase().endsWith(".pdf") && !imageFiles.includes(f)
+  );
+
+  // ✅ ONLY these get the interactive demo UI
+  const TABBED_DEMO_SLUGS = new Set([
+    "p4-drone-delivery",
+    "forum-post-project",
+    "image-resizer",
+    "letterman",
+    "p3-logman",
+    "stocks",
+  ]);
+
+  const useTabbedLayout = TABBED_DEMO_SLUGS.has(p.slug);
 
   return (
     <div className="space-y-8">
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-3xl font-semibold">{p.title}</h1>
+
           <div className="flex gap-2">
-            <a
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10"
-              href={baseUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open folder
-            </a>
+            {demoPath ? (
+              <Link
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10"
+                href={demoPath}
+              >
+                Live Demo
+              </Link>
+            ) : null}
+
             <Link
               className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
               href="/projects"
@@ -55,84 +82,79 @@ export default async function ProjectDetail({ params }: Props) {
           ))}
         </div>
 
-        {p.links ? (
-          <div className="flex flex-wrap gap-2 pt-1">
-            {Object.entries(p.links).map(([k, href]) => {
-              const label =
-                k === "github"
-                  ? "GitHub"
-                  : k === "demo"
-                    ? "Live demo"
-                    : k === "dataset"
-                      ? "Dataset"
-                      : k;
-              return (
-                <a
-                  key={k}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 hover:bg-white/10"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {label}
-                </a>
-              );
-            })}
-          </div>
-        ) : null}
+        {isRestricted ? <CodeRestrictionModal /> : null}
       </div>
 
-      {p.hasPdf ? (
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Artifacts</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {p.files
-              .filter((f) => f.toLowerCase().endsWith(".pdf"))
-              .map((f) => (
-                <div
-                  key={f}
-                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-                >
-                  <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                    <div className="text-sm text-white/80">{f}</div>
+      {/* ================= DEMO PROJECTS ================= */}
+      {useTabbedLayout ? (
+        <ProjectTabs
+          isRestricted={isRestricted}
+          demoPath={demoPath}
+          imageFiles={imageFiles}
+          pdfFiles={pdfFiles}
+          nonPdfFiles={sourceFiles}
+          baseUrl={baseUrl}
+          CodeViewer={<CodeViewer key="code-viewer" baseUrl={baseUrl} files={sourceFiles} />}
+        />
+      ) : (
+        <>
+          {/* ================= NON-DEMO PROJECTS ================= */}
+
+          {/* Artifacts */}
+          {pdfFiles.length > 0 ? (
+            <section className="space-y-3">
+              <h2 className="text-xl font-semibold">Artifacts</h2>
+              <div className="grid gap-4 md:grid-cols-2">
+                {pdfFiles.map((f) => {
+                  const url = encodeURI(`${baseUrl}/${f}`);
+                  return (
                     <a
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 hover:bg-white/10"
+                      key={f}
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-2xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition"
+                    >
+                      <div className="font-medium text-white">{f}</div>
+                      <div className="mt-1 text-sm text-white/60">Open PDF →</div>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          ) : null}
+
+          {/* Source (simple list, NOT CodeViewer) */}
+          <section className="space-y-3">
+            <h2 className="text-xl font-semibold">Source Files</h2>
+
+            {isRestricted ? (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-white/75">
+                Source code is not publicly available due to University of Michigan academic
+                integrity policy.
+              </div>
+            ) : sourceFiles.length > 0 ? (
+              <ul className="rounded-2xl border border-white/10 bg-white/5 divide-y divide-white/10">
+                {sourceFiles.map((f) => (
+                  <li key={f} className="flex items-center justify-between px-4 py-3">
+                    <span className="text-sm text-white/80">{f}</span>
+                    <a
                       href={`${baseUrl}/${encodeURIComponent(f)}`}
                       target="_blank"
                       rel="noreferrer"
+                      className="text-sm text-white/60 underline hover:text-white"
                     >
-                      Open
+                      Download
                     </a>
-                  </div>
-                  <iframe
-                    src={`${baseUrl}/${encodeURIComponent(f)}#view=FitH`}
-                    className="h-[520px] w-full"
-                    title={f}
-                  />
-                </div>
-              ))}
-          </div>
-        </section>
-      ) : null}
-
-      <section className="space-y-3">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-xl font-semibold">Source</h2>
-          <a
-            className="text-sm text-white/60 underline hover:text-white"
-            href={`${baseUrl}/`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Browse raw files
-          </a>
-        </div>
-
-        <CodeViewer
-          baseUrl={baseUrl}
-          files={p.files.filter((f) => !f.toLowerCase().endsWith(".pdf"))}
-        />
-      </section>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="text-white/60 text-sm">No public source files.</div>
+            )}
+          </section>
+        </>
+      )}
     </div>
   );
 }
