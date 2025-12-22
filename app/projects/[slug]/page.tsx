@@ -7,8 +7,14 @@ export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }));
 }
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
-  const p = getProject(params.slug);
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function ProjectDetail({ params }: Props) {
+  const { slug } = await params;
+
+  const p = getProject(slug);
   if (!p) return notFound();
 
   const baseUrl = `/assets/projects/${p.slug}`;
@@ -40,7 +46,10 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
         <div className="flex flex-wrap gap-2">
           {p.tags.map((t) => (
-            <span key={t} className="rounded-full bg-white/10 px-2.5 py-1 text-xs text-white/70">
+            <span
+              key={t}
+              className="rounded-full bg-white/10 px-2.5 py-1 text-xs text-white/70"
+            >
               {t}
             </span>
           ))}
@@ -80,7 +89,10 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
             {p.files
               .filter((f) => f.toLowerCase().endsWith(".pdf"))
               .map((f) => (
-                <div key={f} className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+                <div
+                  key={f}
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                >
                   <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
                     <div className="text-sm text-white/80">{f}</div>
                     <a
@@ -116,7 +128,10 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           </a>
         </div>
 
-        <CodeViewer baseUrl={baseUrl} files={p.files.filter((f) => !f.toLowerCase().endsWith(".pdf"))} />
+        <CodeViewer
+          baseUrl={baseUrl}
+          files={p.files.filter((f) => !f.toLowerCase().endsWith(".pdf"))}
+        />
       </section>
     </div>
   );
