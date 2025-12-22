@@ -26,7 +26,8 @@
     "title": "Euchre Game Engine (C++)",
     "description": "Interactive Euchre game engine with AI players, rule enforcement, and score tracking.",
     "tags": ["C++", "OOP", "Simulation", "Game Logic", "Data Structures"],
-    "hasPdf": false
+    "hasPdf": false,
+    "hidden": true
   },
   {
     "slug": "forum-post-project",

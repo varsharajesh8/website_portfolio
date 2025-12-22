@@ -1,4 +1,4 @@
-import fs from "node:fs";
+ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
@@ -12,6 +12,9 @@ export type Project = {
   links?: Record<string, string>;
   restricted?: boolean;
   demoPath?: string;
+
+  // NEW: allow hiding projects (e.g., euchre)
+  hidden?: boolean;
 };
 
 export type BlogPost = {
@@ -63,25 +66,27 @@ export function getProjects(): Project[] {
   const raw = fs.readFileSync(jsonPath, "utf-8");
   const parsed = JSON.parse(raw) as Project[];
 
-  return parsed.map((proj) => {
+  // NEW: hide projects from the Projects page/grid (no "tab/card")
+  const visible = parsed.filter((p) => !p.hidden);
+
+  return visible.map((proj) => {
     // Always scan /public/assets/projects/<slug>
     const dirAbs = projectAssetsDir(proj.slug);
     const files = safeReadDirRecursive(dirAbs);
 
-    const inferredHasPdf = files.some((f) =>
-      f.toLowerCase().endsWith(".pdf")
-    );
+    const inferredHasPdf = files.some((f) => f.toLowerCase().endsWith(".pdf"));
 
     return {
       ...proj,
       files,
-      hasPdf:
-        typeof proj.hasPdf === "boolean" ? proj.hasPdf : inferredHasPdf,
+      hasPdf: typeof proj.hasPdf === "boolean" ? proj.hasPdf : inferredHasPdf,
     };
   });
 }
 
 export function getProject(slug: string): Project | undefined {
+  // NOTE: because getProject() uses getProjects(), hidden projects will 404.
+  // This matches your requirement: "I don't want a euchre project tab".
   return getProjects().find((p) => p.slug === slug);
 }
 

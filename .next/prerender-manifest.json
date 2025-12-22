@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/projects/predict-author-nn":{},"/projects/p4-drone-delivery":{},"/projects/bioinformatics-llms":{},"/projects/euchre":{},"/projects/forum-post-project":{},"/projects/german-gas":{},"/projects/image-resizer":{},"/projects/imdb-analysis":{},"/projects/letterman":{},"/projects/p3-logman":{},"/projects/michigan-medicine":{},"/projects/stocks":{},"/projects/textgen-homemade-lstm":{},"/projects/mri-alzheimers-detection-mdst":{}},"dynamicRoutes":{"/projects/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/projects/[slug]","routeRegex":"^\\/projects\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"2b9a86ac0c97dbd064f7de22c8db9041","previewModeSigningKey":"e43f312fc021b8148191e7d1d843ad709f3ba04ee85eff907260e45ff696b084","previewModeEncryptionKey":"948e0a1f028065051b46c94be470a1b056bbfc51a44d55bf55f53a58907cab10"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "be7983493e831dbcb8ad30617b80aded",
+    "previewModeSigningKey": "64794de6dfed338dbbc917945fecbb0fef007cefa36e33a8c084cef9429a56ca",
+    "previewModeEncryptionKey": "a08621e8322d20ea14a9eb3a9fb2fda8b9fddcee8e29252ce83b75be31d50798"
+  }
+}

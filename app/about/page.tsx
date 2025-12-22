@@ -62,7 +62,7 @@ export default function AboutPage() {
             <li>
               GitHub:{" "}
               <a
-                href="https://www.github.com/varsharajesh"
+                href="https://www.github.com/varsharajesh8"
                 target="_blank"
                 rel="noreferrer"
                 className="underline hover:text-white"

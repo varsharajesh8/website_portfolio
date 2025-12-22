@@ -3,7 +3,7 @@ import DemoImageSwitcher from "@/components/DemoImageSwitcher";
 
 type Scene = "crabster" | "dog" | "horses";
 
-const BASE = "/assets/demos";
+const BASE = "/assets/demos/image-resizer";
 
 function img(scene: Scene, nameNoExt: string) {
   // PNG preview

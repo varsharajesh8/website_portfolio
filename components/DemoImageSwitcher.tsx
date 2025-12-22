@@ -101,6 +101,11 @@ export default function DemoImageSwitcher({ title, subtitle, variants }: Props) 
             className="w-full h-auto object-contain rounded-xl"
             loading="lazy"
           />
+
+          <div className="mt-2 text-xs text-white/60 font-mono break-all">
+            {active.png}
+          </div>
+
         </div>
 
         <div className="mt-3 text-xs text-white/55">
