@@ -19,7 +19,8 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
       !q ||
       p.title.toLowerCase().includes(q.toLowerCase()) ||
       p.description.toLowerCase().includes(q.toLowerCase()) ||
-      p.folder.toLowerCase().includes(q.toLowerCase());
+      p.slug.toLowerCase().includes(q.toLowerCase());
+
     const matchesTag = !activeTag || p.tags.includes(activeTag);
     return matchesQ && matchesTag;
   });
