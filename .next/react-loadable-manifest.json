@@ -1,8 +1,1 @@
-{
-  "app/playground/playground.tsx -> react-plotly.js": {
-    "id": "app/playground/playground.tsx -> react-plotly.js",
-    "files": [
-      "static/chunks/_app-pages-browser_node_modules_react-plotly_js_react-plotly_js.js"
-    ]
-  }
-}
+{}
