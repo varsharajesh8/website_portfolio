@@ -7,6 +7,7 @@ import { Github, Linkedin, FileText } from "lucide-react";
 
 const nav = [
   { href: "/about", label: "About" },
+  { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
   { href: "/playground", label: "Playground" },
   { href: "/resume", label: "Resume" }
